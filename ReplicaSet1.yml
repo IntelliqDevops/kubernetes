@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: tomcat-rs
+  labels:
+    app: appserver
+    author: intelliqit
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: appserver
+  template:
+    metadata:
+      name: tomcat-pod
+      labels:
+        app: appserver
+    spec:
+     containers:
+       - name: mytomcat
+         image: tomee
+         ports:
+           - containerPort: 8080
+             hostPort: 9090
+...
+
+
+
+
+
+
