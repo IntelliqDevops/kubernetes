@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /usr/local/bin/kompose/kompose convert
+    kompose.version: 1.35.0 (9532ceef3)
+  labels:
+    io.kompose.service: voting-app
+  name: voting-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      io.kompose.service: voting-app
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /usr/local/bin/kompose/kompose convert
+        kompose.version: 1.35.0 (9532ceef3)
+      labels:
+        io.kompose.service: voting-app
+    spec:
+      containers:
+        - image: dockersamples/examplevotingapp_vote
+          name: voting-app
+          ports:
+            - containerPort: 80
+              protocol: TCP
+      restartPolicy: Always
