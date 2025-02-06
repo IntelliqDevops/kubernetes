@@ -8,9 +8,9 @@ metadata:
 spec:
   storageClassName: standard
   capacity:
-    storage: 20Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-   path: /tmp
+   path: /mnt/data
 ...

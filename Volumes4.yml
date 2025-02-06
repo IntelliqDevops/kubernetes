@@ -15,9 +15,6 @@ spec:
      volumeMounts:
       - name: mysql-volume
         mountPath: /var/lib/mysql
-     resources:
-      requests:
-       ephemeral-storage: 2Gi
   volumes:
     - name: mysql-volume
       persistentVolumeClaim:
