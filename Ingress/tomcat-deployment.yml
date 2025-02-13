@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-deployment
+  labels:
+    author: intelliqit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tomcat
+  template:
+    metadata:
+      name: tomcat-pod
+      labels:
+        app: tomcat
+    spec:
+      containers:
+        - name: tomcat
+          image: tomee
+...
+
